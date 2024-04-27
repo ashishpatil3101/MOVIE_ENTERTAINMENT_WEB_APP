@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import { asyncLoadMovie, removeMovie } from "../store/actions/movieActions";
 import { useNavigate, Link } from "react-router-dom";
 import { Loader } from "./Loader";
@@ -35,7 +35,7 @@ export const MovieDetails = () => {
 
         backgroundRepeat: 'no-repeat',
       }}
-      className="w-screen h-[150vh] px-[8%] overflow-y-auto"
+      className="relative w-screen h-[150vh] px-[8%] overflow-y-auto"
     >
       {/* {part 1 navigation} */}
       <nav className="h-[10vh] items-center w-full text-zinc-100 flex gap-10 text-xl">
@@ -111,7 +111,7 @@ export const MovieDetails = () => {
           <h1 className="text-xl  mt-3 ">Movie translated</h1>
           <p className="mb-10">{info.translations.slice(0, 5).join(", ")}</p>
          
-          <Link className="px-5 py-5 bg-[#6556CD] rounded-lg" to={`${pathname}/trailer`} target="_blank" >Play Trailer</Link>
+          <Link className="px-5 py-5 bg-[#6556CD] rounded-lg" to={`${pathname}/trailer`}  >Play Trailer</Link>
         </div>
       </div>
 
@@ -167,6 +167,8 @@ export const MovieDetails = () => {
       <h1 className="text-3xl font-bold text-white">Recommendation and similar</h1>
       <HorizontalCards   data={info.recommondation.length > 0 ? info.recommondation : info.simila}
       />     
+
+      <Outlet />
     </div>
   ) : (
     <Loader />
