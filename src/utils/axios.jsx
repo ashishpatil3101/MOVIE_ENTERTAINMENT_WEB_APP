@@ -4,7 +4,7 @@ const instance = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
     headers: {
         accept: 'application/json',
-         Authorization : import.meta.env.API_KEY
+         Authorization : import.meta.env.VITE_TMDB_API_KEY
     }
 })
 

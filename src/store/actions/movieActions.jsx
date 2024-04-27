@@ -9,6 +9,7 @@ export const asyncLoadMovie= (id)=> async(dispacth, getState)=>{
 
         const recommondation = await axios.get(`/movie/${id}/recommendations`);
         const similar = await axios.get(`/movie/${id}/similar`);
+        const translations = await axios.get(`/movie/${id}/translations`);
         const videos = await axios.get(`/movie/${id}/videos`);
         const watchProvider = await axios.get(`/movie/${id}/watch/providers`);
         const res = {
@@ -16,6 +17,7 @@ export const asyncLoadMovie= (id)=> async(dispacth, getState)=>{
             externalId: externalId.data,
             recommondation: recommondation.data.results,
             similar: similar.data.results,
+            translations: translations.data.translations.map(t=> t.name),
             videos: videos.data.results.find(m=> m.type="Trailer"),
             watchProvider: watchProvider.data.results.IN   
         }

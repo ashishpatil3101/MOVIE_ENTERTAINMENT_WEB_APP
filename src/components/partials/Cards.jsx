@@ -7,7 +7,7 @@ export const Cards = ({ data, title }) => {
                 
                 
                 <Link 
-                    className="relative flex flex-col items-center w-56  rounded-lg shadow-md  mb-5"
+                    className="relative flex flex-col items-center w-56  rounded-lg shadow-md  mb-5 "
                     key={i} 
                   
                     to={`/${c.media_type || title}/details/${c.id}`} 
@@ -15,9 +15,6 @@ export const Cards = ({ data, title }) => {
                  { c.vote_average &&  <div className="rounded-full bg-yellow-300 text-white w-[6vh] h-[6vh] flex justify-center items-center absolute left-0 ">
                         {(c.vote_average).toFixed() * 10}<sup>%</sup>
                     </div>}
-
-                    {console.log(c.media_type )}
-
                     <img
                         className="h-64 w-full object-cover"
                         src={`https://image.tmdb.org/t/p/original/${c.profile_path || c.poster_path || c.backdrop_path}`}
