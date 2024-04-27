@@ -28,6 +28,7 @@ export const Tvshows = ()=>{
   useEffect(() => {
     getTvShows();
   }, [ category]);
+  console.log(tvshows)
       return (
         tvshows.length > 0 ? <div className="p-[2%]  w-screen h-screen overflow-hidden overflow-y-auto">
             <div className="w-full flex items-center mb-[1%] px-[4.2%]">
