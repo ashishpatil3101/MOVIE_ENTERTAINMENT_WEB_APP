@@ -5,6 +5,7 @@ import { asyncLoadMovie, removeMovie } from "../store/actions/movieActions";
 import { useNavigate, Link } from "react-router-dom";
 import { Loader } from "./Loader";
 import {HorizontalCards} from "../components/partials/HorizontalCards"
+
 export const MovieDetails = () => {
   const {pathname} =useLocation();
   const navigate = useNavigate();
