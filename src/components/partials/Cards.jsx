@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import noIMageAvailable from '/noIMageAvailabele.png'
 
 export const Cards = ({ data, title }) => {
     return (
@@ -17,7 +18,7 @@ export const Cards = ({ data, title }) => {
                     </div>}
                     <img
                         className="h-64 w-full object-cover"
-                        src={`https://image.tmdb.org/t/p/original/${c.profile_path || c.poster_path || c.backdrop_path}`}
+                        src={(c.profile_path || c.poster_path || c.backdrop_path) ? `https://image.tmdb.org/t/p/original/${c.profile_path || c.poster_path || c.backdrop_path}` : noIMageAvailable}
                         alt=""
                     />
                     <h1 className="text-lg text-zinc-200 font-semibold mt-3 px-4">{c.name || c.title || c.original_name || c.original_title}</h1>

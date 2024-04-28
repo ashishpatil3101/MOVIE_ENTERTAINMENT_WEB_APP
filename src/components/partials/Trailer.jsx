@@ -8,7 +8,7 @@ export const Trailer = () => {
     const { pathname } = useLocation();
     const category = pathname.includes("movie") ? "movies" : "tvshows"
     const ytvideo = useSelector(state => state[category].info.videos)
-    console.log("hey", pathname.includes("movie"), ytvideo)
+    
     return   (
         <div className="bg-[rgba(0,0,0,0.9)] absolute z-[100] top-0 left-0 w-screen h-screen flex items-center justify-center">
             <Link
@@ -17,6 +17,7 @@ export const Trailer = () => {
             ></Link>
 
            {ytvideo ?  <ReactPlayer
+                controls
                 height={500}
                 width={900}
                 url={`https://www.youtube.com/watch?v=${ytvideo.key}`} 
